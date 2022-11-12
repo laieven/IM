@@ -14,6 +14,9 @@ import android.view.View;
 import com.hyphenate.chat.EMClient;
 import com.lbj.guiguim.R;
 import com.lbj.guiguim.model.Model;
+import com.lbj.guiguim.model.bean.UserInfo;
+
+import java.util.Objects;
 
 /**
  * 欢迎界面
@@ -69,11 +72,18 @@ public class SplashActivity extends Activity {
                 //判断当前账号是否登录过
                 if (EMClient.getInstance().isLoggedInBefore()){
                     //获取当前用户登录信息
+                    UserInfo id = Model.getInstance().getUserAccountDao().getAllAccountByHuanxinId(EMClient.getInstance().getCurrentUser());
+                    if (!Objects.isNull(id)){
+                        //跳转至登录
+                        Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                    }else {
+                        //跳转至主界面
+                        Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+                        startActivity(intent);
+                    }
 
 
-                    //跳转至主界面
-                    Intent intent = new Intent(SplashActivity.this,MainActivity.class);
-                    startActivity(intent);
                 } else {
                     //跳转至登录页面
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);

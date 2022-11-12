@@ -2,6 +2,8 @@ package com.lbj.guiguim.model;
 
 import android.content.Context;
 
+import com.lbj.guiguim.model.dao.UserAccountDao;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -14,6 +16,7 @@ public class Model {
     private Context mContext;
     //线程池
     private ExecutorService executor = Executors.newCachedThreadPool();
+    private UserAccountDao userAccountDao;
 
     //使用单例模式
     private Model(){
@@ -27,9 +30,20 @@ public class Model {
     //初始化方法
     public void init(Context context){
         mContext = context;
+
+        //创建用户账号数据库操作类对象
+        userAccountDao = new UserAccountDao(context);
     }
 
     public ExecutorService getGlobalThreadPool(){
         return executor;
+    }
+
+    public void loginSuccess() {
+    }
+
+    //获取用户账号数据库的操作类对象
+    public UserAccountDao getUserAccountDao(){
+        return userAccountDao;
     }
 }
