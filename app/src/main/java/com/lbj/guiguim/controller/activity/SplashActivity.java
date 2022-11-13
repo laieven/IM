@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 
 import com.hyphenate.chat.EMClient;
@@ -26,6 +27,7 @@ import java.util.Objects;
 @SuppressWarnings("all")
 public class SplashActivity extends Activity {
 
+    private static final String TAG = "SplashActivity";
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -72,8 +74,9 @@ public class SplashActivity extends Activity {
                 //判断当前账号是否登录过
                 if (EMClient.getInstance().isLoggedInBefore()){
                     //获取当前用户登录信息
-                    UserInfo id = Model.getInstance().getUserAccountDao().getAllAccountByHuanxinId(EMClient.getInstance().getCurrentUser());
-                    if (!Objects.isNull(id)){
+                    UserInfo userInfo = Model.getInstance().getUserAccountDao().getAllAccountByHuanxinId(EMClient.getInstance().getCurrentUser());
+                    Log.i(TAG, "userInfo: " + userInfo);
+                    if (Objects.isNull(userInfo)){
                         //跳转至登录
                         Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
                         startActivity(intent);
