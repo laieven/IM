@@ -52,6 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.activity.AddContactActivity" />
 
         <meta-data
             android:name="EASEMOB_APPKEY"

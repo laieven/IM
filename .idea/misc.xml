@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/drawable/red_dot.xml" value="0.1685" />
+        <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/activity_add_contact.xml" value="0.23541666666666666" />
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/activity_login.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/activity_splash.xml" value="0.28541666666666665" />
+        <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/contract_search.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/fragment_setting.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/layout/header_fragment_contact.xml" value="0.10729166666666666" />
         <entry key="..\:/AndroidStudioProjects/guiguIM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.155" />
       </map>
     </option>
