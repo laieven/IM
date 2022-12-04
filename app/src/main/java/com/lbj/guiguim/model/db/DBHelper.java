@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.lbj.guiguim.model.dao.ContactTable;
+import com.lbj.guiguim.model.dao.InviteTable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -18,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ContactTable.CREATE_TAB);
 
         //创建邀请信息的表
-        db.execSQL();
+        db.execSQL(InviteTable.CREATE_TAB);
     }
 
     @Override

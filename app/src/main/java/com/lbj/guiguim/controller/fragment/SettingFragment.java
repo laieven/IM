@@ -56,6 +56,8 @@ public class SettingFragment extends Fragment {
                 EMClient.getInstance().logout(false, new EMCallBack() {
                     @Override
                     public void onSuccess() {
+                        //退出之后关闭DBHelper
+                        Model.getInstance().getDbManager().close();
                         //成功退出，更新UI，返回登录界面
                         getActivity().runOnUiThread(() -> {
                             Toast.makeText(getActivity(), "退出成功", Toast.LENGTH_SHORT).show();

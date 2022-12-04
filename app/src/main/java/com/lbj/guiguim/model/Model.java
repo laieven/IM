@@ -2,8 +2,11 @@ package com.lbj.guiguim.model;
 
 import android.content.Context;
 
+import com.lbj.guiguim.model.bean.UserInfo;
 import com.lbj.guiguim.model.dao.UserAccountDao;
+import com.lbj.guiguim.model.db.DBManager;
 
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,6 +20,7 @@ public class Model {
     //线程池
     private ExecutorService executor = Executors.newCachedThreadPool();
     private UserAccountDao userAccountDao;
+    private DBManager dbManager;
 
     //使用单例模式
     private Model(){
@@ -39,7 +43,22 @@ public class Model {
         return executor;
     }
 
-    public void loginSuccess() {
+    public void loginSuccess(UserInfo userInfo) {
+
+        //校验工作
+        if (Objects.isNull(userInfo)){
+            return;
+        }
+        if (Objects.isNull(dbManager)){
+            dbManager.close();
+        }
+
+        //只要登录成功，就创建表管理者
+        dbManager = new DBManager(mContext, userInfo.getName());
+    }
+
+    public DBManager getDbManager(){
+        return dbManager;
     }
 
     //获取用户账号数据库的操作类对象
